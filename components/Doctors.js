@@ -1,11 +1,11 @@
 import { SideNav, SideNavItem, Button } from 'react-materialize';
-// import { useAppointment } from '../pages/index';
-// import { useDoctor } from '../pages/index';
 
 export default function Doctors({ doctors, setSelected }) {
   return (
-    <div>
-      <SideNav>
+    <div className="select-doctors col s4">
+      {/* <SideNav trigger={<Button />} options={{ closeOnClick: true }}> */}
+      {/* <SideNav trigger={<Button />} fixed={true}> */}
+      <div>
         <h2>notable</h2>
         <h2>Physicians</h2>
         {doctors.map((doctor, idx) => (
@@ -13,7 +13,7 @@ export default function Doctors({ doctors, setSelected }) {
             doctor.last
           }, ${doctor.first} `}</SideNavItem>
         ))}
-      </SideNav>
+      </div>
     </div>
   );
 }

@@ -2,9 +2,9 @@ import { Table } from 'react-materialize';
 
 export default function Appointments({ doctor, appointments }) {
   return (
-    <div>
+    <div className="appointment-table col s8">
       <h2>{`${doctor.prefix} ${doctor.first} ${doctor.last}`}</h2>
-      <email>{`${doctor.email}`}</email>
+      <a href={`mailto:${doctor.email}`}>{`${doctor.email}`}</a>
 
       <Table>
         <thead>
