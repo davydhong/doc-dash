@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "first": "Julius",
+    "last": "Hibbert",
+    "prefix": "Dr.",
+    "email": "julius@notablehealth.com"
+  },
+  {
+    "id": 2,
+    "first": "Algemop",
+    "last": "Krieger",
+    "prefix": "Dr.",
+    "email": "algemop@notablehealth.com"
+  },
+  {
+    "id": 3,
+    "first": "Nick",
+    "last": "Riviera",
+    "prefix": "Dr.",
+    "email": "nick@notablehealth.com"
+  }
+]

@@ -1,0 +1,12 @@
+[
+  { "docID": 1, "name": "Sterling Barcher", "time": "8:00AM", "kind": "New Patient" },
+  { "docID": 1, "name": "Cyril Gigis", "time": "8:30AM", "kind": "Follow-up" },
+  { "docID": 1, "name": "Ray Hilette", "time": "9:00AM", "kind": "Follow-up" },
+  { "docID": 2, "name": "Sterling Archer", "time": "8:00AM", "kind": "New Patient" },
+  { "docID": 2, "name": "Cyril Figis", "time": "8:30AM", "kind": "Follow-up" },
+  { "docID": 2, "name": "Ray Gilette", "time": "9:00AM", "kind": "Follow-up" },
+  { "docID": 2, "name": "Lana Kane", "time": "9:30AM", "kind": "New Patient" },
+  { "docID": 2, "name": "Pam Poovey", "time": "10:00AM", "kind": "New Patient" },
+  { "docID": 3, "name": "Sterling Parcher", "time": "8:00AM", "kind": "New Patient" },
+  { "docID": 3, "name": "Cyril Kigis", "time": "8:30AM", "kind": "Follow-up" }
+]
