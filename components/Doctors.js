@@ -6,8 +6,8 @@ export default function Doctors({ doctors, setSelected }) {
       {/* <SideNav trigger={<Button />} options={{ closeOnClick: true }}> */}
       {/* <SideNav trigger={<Button />} fixed={true}> */}
       <div>
-        <h2>notable</h2>
-        <h2>Physicians</h2>
+        <h3>notable</h3>
+        <h3>Physicians</h3>
         {doctors.map((doctor, idx) => (
           <SideNavItem key={idx} onClick={() => setSelected(doctor.id)}>{`${
             doctor.last

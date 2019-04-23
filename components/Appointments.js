@@ -5,6 +5,8 @@ export default function Appointments({ doctor, appointments }) {
     <div className="appointment-table col s8">
       <h2>{`${doctor.prefix} ${doctor.first} ${doctor.last}`}</h2>
       <a href={`mailto:${doctor.email}`}>{`${doctor.email}`}</a>
+      <br />
+      <br />
 
       <Table>
         <thead>
