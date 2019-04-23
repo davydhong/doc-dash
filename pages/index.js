@@ -1,39 +1,64 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import fetch from 'isomorphic-unfetch';
 import Doctors from '../components/Doctors';
 import Appointments from '../components/Appointments';
+import 'materialize-css/dist/css/materialize.min.css';
 
-const Index = (props) => {
+const Index = ({ docsData, apptData }) => {
+  const [doctors, setDoctors] = useState(docsData);
+  const [selected, setSelected] = useState(1);
+  const [appointments, setAppointments] = useAppointments(apptData);
+
+  useEffect(() => {
+    async function getApptData() {
+      const data = await fetchAppointments(selected);
+      setAppointments(data);
+    }
+    getApptData();
+  }, [selected]);
+
   return (
     <div>
-      <Doctors doctors={props} />
-      <Appointments />
+      <Doctors {...{ doctors, setSelected }} />
+      <Appointments
+        {...{ doctor: doctors.find((doctor) => doctor.id === selected), appointments }}
+      />
     </div>
   );
 };
 
-export function useDoctor() {
-  const [doctor, setDoctor] = useState(1);
+export function useAppointments(init = []) {
+  const [appointments, setAppointments] = useState(init);
+  return [appointments, setAppointments];
+}
 
-  const handleChangeDoctor = function(input) {
-    console.log(input);
-    setDoctor(input);
-  };
+async function fetchDoctors() {
+  const resDocs = await fetch(`http://localhost:3000/doctors`);
+  const result = await resDocs.json();
+  console.log('fetDoctors result');
+  console.log(result);
+  return result;
+}
 
-  return {
-    doctor,
-    handleChangeDoctor
-  };
+async function fetchAppointments(docID) {
+  const resAppt = await fetch(`http://localhost:3000/doctors/${docID}/appointments`);
+  return await resAppt.json();
 }
 
 Index.getInitialProps = async function() {
-  const res = await fetch('http://localhost:3000/doctors');
-  const data = await res.json();
+  const resDocs = await fetch('http://localhost:3000/doctors');
+  const docsData = await resDocs.json();
 
-  console.log(`Show data fetched. Count: ${data.length}`);
-  console.log(data[0]);
+  console.log(`doctors data fetched. Count: ${docsData.length}`);
+  console.log(docsData);
 
-  return data;
+  const resAppt = await fetch(
+    `http://localhost:3000/doctors/${docsData[0].id}/appointments`
+  );
+
+  const apptData = await resAppt.json();
+  console.log(apptData);
+  return { docsData, apptData };
 };
 
 export default Index;

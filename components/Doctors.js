@@ -1,17 +1,15 @@
 import { SideNav, SideNavItem, Button } from 'react-materialize';
-import { log } from 'util';
+// import { useAppointment } from '../pages/index';
+// import { useDoctor } from '../pages/index';
 
-import { useDoctor } from '../pages/index';
-
-export default function Doctors(props) {
-  const doctors = Object.values(props.doctors);
-  const { handleChangeDoctor } = useDoctor();
+export default function Doctors({ doctors, setSelected }) {
   return (
     <div>
       <SideNav>
+        <h2>notable</h2>
         <h2>Physicians</h2>
         {doctors.map((doctor, idx) => (
-          <SideNavItem key={idx} onClick={() => handleChangeDoctor(doctor.id)}>{`${
+          <SideNavItem key={idx} onClick={() => setSelected(doctor.id)}>{`${
             doctor.last
           }, ${doctor.first} `}</SideNavItem>
         ))}
